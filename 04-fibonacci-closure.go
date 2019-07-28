@@ -33,6 +33,7 @@ func fibonacci() func() int {
     } else {
       fib.Last = fib.Curr
     }
+
     fib.Curr = newFib
 
     // Return current value
