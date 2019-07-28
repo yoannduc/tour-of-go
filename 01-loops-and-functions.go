@@ -23,17 +23,6 @@ func Sqrt(x float64) (float64, int) {
   // While loop. The exit condition is that last iteration is close enough of current iteration
   // Close enough means for digit after coma precise
 	for ; int(z * precision) != int((z - tmp) * precision) ; i++ {
-    fmt.Println("")
-    fmt.Println("iteration")
-    fmt.Println(i)
-    fmt.Println("z")
-    fmt.Println(z)
-    fmt.Println("tmp")
-    fmt.Println(tmp)
-    fmt.Println("z-tmp")
-    fmt.Println(z - tmp)
-    fmt.Println("")
-
     // Use Newton's method as provided in excercise definition
 		tmp = (z*z - x) / (2*z)
 
@@ -47,5 +36,6 @@ func Sqrt(x float64) (float64, int) {
 
 func main() {
 	fmt.Println(Sqrt(2))
+  // Throw in there math square root function to compare
   fmt.Println(math.Sqrt(2))
 }
