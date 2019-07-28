@@ -4,8 +4,10 @@ import (
   "fmt"
 )
 
+// Define the number of numbers we want to print
 var displayedNumbers int = 10
 
+// Define a struct for fibonacci numbers
 type fibStruct struct {
   Last int
   Curr int
