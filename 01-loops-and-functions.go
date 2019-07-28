@@ -5,11 +5,19 @@ import (
   "math"
 )
 
+// Define a struct which contains both approx square root value &
+// iteration number to find this approx value
+type SqrtStruct struct {
+  Value float64
+  Iterator int
+}
+
 // Define precision. This is used to set the precision for our approximation
 // Each zero means 1 digit after coma precise
 var precision float64 = float64(10000)
 
-func Sqrt(x float64) (float64, int) {
+// Function return a single value as struct
+func Sqrt(x float64) *SqrtStruct {
   // Declare arbitrary start value for our square root
 	z := float64(1)
 
@@ -20,7 +28,8 @@ func Sqrt(x float64) (float64, int) {
   // Declare iterator out of for scope to return it at end of function
 	i := 1
 
-  // While loop. The exit condition is that last iteration is close enough of current iteration
+  // While loop
+  // Exit condition is that last iteration is close enough of current iteration
   // Close enough means for digit after coma precise
 	for ; int(z * precision) != int((z - tmp) * precision) ; i++ {
     // Use Newton's method as provided in excercise definition
@@ -30,8 +39,8 @@ func Sqrt(x float64) (float64, int) {
 		z -= tmp
 	}
 
-  // Return both approx square root & iterations
-	return z, i
+  // Return both approx square root & iterations in struct
+	return &SqrtStruct{z, i}
 }
 
 func main() {
