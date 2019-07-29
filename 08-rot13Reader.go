@@ -31,16 +31,20 @@ func rot13(b byte) byte {
 }
 
 func (r *rot13Reader) Read(b []byte) (int, error) {
+	// Get the len to read by r reader, r being an Reader instance
 	read, err := r.r.Read(b)
 
+	// Return error if any
 	if err != nil {
 		return 0, err
 	}
 
+	// For len to read from b, apply rot13 function to byte being processed
 	for i := 0; i < read; i++ {
 		b[i] = rot13(b[i])
 	}
 
+	// Return the len read (and transformed)
 	return read, nil
 }
 
