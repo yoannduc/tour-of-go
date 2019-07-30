@@ -4,16 +4,17 @@ ifndef $(GOPATH)
     export GOPATH
 endif
 
-.PHONY : lint
-
+.PHONY : default
 default: lint
 	@echo "============= Done ============="
 
-dep:
+.PHONY: install
+install:
 	@echo "============= Installing dependencies ============="
 	go get golang.org/x/tour/gotour
 	go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
 
+.PHONY: lint
 lint:
 	@echo "============= Lint project using golangci-linter ============="
 	${GOPATH}/bin/golangci-lint run
