@@ -22,7 +22,7 @@ func walkImpl(t *tree.Tree, ch, quit chan int) {
 	// Send value to channel
 	case ch <- t.Value:
 		// Value successfully sent.
-	// If quit has value, return, closing the channel in Walk
+	// If quit has value (ex is closed), return, closing the ch channel in Walk
 	case <-quit:
 		return
 	}
