@@ -1,3 +1,6 @@
+// Check official answer as it does not use channels
+// https://github.com/golang/tour/blob/master/solutions/webcrawler.go
+
 package main
 
 import (
